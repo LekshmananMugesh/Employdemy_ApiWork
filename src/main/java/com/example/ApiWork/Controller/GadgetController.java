@@ -30,4 +30,9 @@ public class GadgetController {
         return service.getEmployees();
     }
 
+    @GetMapping("/employees/{id}")
+    public Employee getSpecificEmployee(@PathVariable int id){
+        return service.getSpecificEmployee(id);
+    }
+
 }

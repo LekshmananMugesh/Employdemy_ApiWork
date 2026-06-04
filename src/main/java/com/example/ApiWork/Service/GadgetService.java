@@ -42,4 +42,14 @@ public class GadgetService {
         return employeeRepo.findAll();
     }
 
+    public Employee getSpecificEmployee(int id) {
+
+        Employee emp = employeeRepo.findById(id).orElse(null);
+
+        if(emp==null){
+            return null;
+        }
+
+        return emp;
+    }
 }
