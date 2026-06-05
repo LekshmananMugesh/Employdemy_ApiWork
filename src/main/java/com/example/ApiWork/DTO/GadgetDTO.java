@@ -1,4 +1,4 @@
-package com.example.ApiWork.Dto;
+package com.example.ApiWork.DTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

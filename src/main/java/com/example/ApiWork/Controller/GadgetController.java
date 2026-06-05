@@ -1,7 +1,7 @@
 package com.example.ApiWork.Controller;
 
 
-import com.example.ApiWork.Dto.GadgetDTO;
+import com.example.ApiWork.DTO.GadgetDTO;
 import com.example.ApiWork.Models.Employee;
 import com.example.ApiWork.Models.Gadget;
 import com.example.ApiWork.Service.GadgetService;
@@ -33,6 +33,11 @@ public class GadgetController {
     @GetMapping("/employees/{id}")
     public Employee getSpecificEmployee(@PathVariable int id){
         return service.getSpecificEmployee(id);
+    }
+
+    @DeleteMapping("/delete/{empid}/gadget/{gadgetid}")
+    public  String deleteSpecificGadget(@PathVariable int empid , @PathVariable int gadgetid){
+        return service.deleteSpecificGadget(empid , gadgetid);
     }
 
 }
