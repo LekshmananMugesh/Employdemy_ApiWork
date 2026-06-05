@@ -24,9 +24,7 @@ public class Employee {
 
     private String employeeAddress;
 
-    @OneToMany(
-            mappedBy = "employee",
-            cascade = CascadeType.ALL
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL
     )
     private List<Gadget> gadgets;
 
