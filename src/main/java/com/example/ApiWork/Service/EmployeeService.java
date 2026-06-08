@@ -1,9 +1,11 @@
 package com.example.ApiWork.Service;
 
 
+import com.example.ApiWork.DTO.EmployeeDTO;
 import com.example.ApiWork.Models.Employee;
 import com.example.ApiWork.Repository.EmployeeRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
@@ -11,6 +13,8 @@ import java.util.List;
 public class EmployeeService {
 
     private EmployeeRepository repository;
+
+    private EmployeeDTO empDto;
 
     public EmployeeService(EmployeeRepository repository){
         this.repository = repository;
@@ -46,5 +50,27 @@ public class EmployeeService {
 
         return "Employee Not Found";
     }
+    public Employee updateParticularUser(int id,EmployeeDTO empDto) {
 
+        Employee emp = repository.findById(id).orElse(null);
+        if(emp == null){
+            return null;
+        }
+
+        if(emp.getEmployeeName()!=null){
+            emp.setEmployeeName(empDto.getEmployeeName());
+            return repository.save(emp);
+        }
+
+        if(emp.getEmployeeAddress()!=null){
+            emp.setEmployeeAddress(empDto.getEmployeeAddress());
+
+        }
+
+        if(emp.getEmployeeDomain()!=null){
+            emp.setEmployeeDomain(empDto.getEmployeeDomain());
+        }
+        return repository.save(emp);
+
+    }
 }
